@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>蒙娜丽莎智能选材系统</title>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/progressive-image@1.2.0/dist/index.css"> -->
+  <!-- <link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="//unpkg.com/iview/dist/iview.min.js"></script> -->
+  <!-- dev -->
+  <!-- <link rel="stylesheet" href="/static/css/index.css"> -->
+  <!-- prod -->
+  <!-- <link rel="stylesheet" href="./static/css/index.css"> -->
+
+  <script>
+    let target = document.documentElement || document.body;
+    target.style.fontSize = target.clientWidth / 3840 * 100 + 'px';
+  </script>
+  <script>
+    window.onresize = function () {
+      location.reload();
+    }
+  </script>
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script>
+    // let target = document.documentElement || document.body;
+    //设置会失效，猜测：1.vue框架做了封装，2.组件当前采用的是异步加载，样式未被正确打包 3.样式重置了
+    // let app = document.getElementsByClassName("app");
+    // console.log(target.clientWidth, target.clientHeight);
+    // app.style.width = target.clientWidth + "px";
+    // app.style.height = target.clientHeight + "px";
+  </script>
+
+</body>
+
+</html>
