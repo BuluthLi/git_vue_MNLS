@@ -36,7 +36,7 @@
           :placeholder="item.big_img+'?x-oss-process=image/resize,w_50'"
           :blur="5"
         />
-        <div class="intro">{{item.pname}}{{list.length}}</div>
+        <div class="intro">{{item.pname}}</div>
       </li>
     </ul>
     <div class="pagenation" v-show="total>10">

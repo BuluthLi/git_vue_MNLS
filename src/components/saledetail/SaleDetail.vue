@@ -11,7 +11,7 @@
             alt
           >
         </div>-->
-        <progressive-background
+        <progressive-img
           :src="bigMainCover+'?x-oss-process=image/resize,w_800'"
           :placeholder="bigMainCover+'?x-oss-process=image/resize,w_50'"
           :blur="5"
@@ -251,6 +251,8 @@ export default {
       box-sizing: border-box;
       padding: 0.5rem;
       border: 0.02rem solid #333;
+      display: flex;
+      align-items: center;
       .inner-box {
         width: 100%;
         height: 100%;

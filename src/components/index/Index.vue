@@ -1,5 +1,13 @@
 <template>
   <div class="index">
+    <!-- <iframe
+      width="500px"
+      height="380px"
+      src="/static/media/1561449791206498.mp4"
+      frameborder="0"
+      allowfullscreen
+      autoplay
+    ></iframe>-->
     <div class="img-box">
       <img src="./index-bg.jpg" class="img-bg" alt v-show="!showVideoFlag">
       <video id="myvideo" :src="videoUrl" class="video-bg" v-show="showVideoFlag" autoplay></video>
