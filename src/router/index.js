@@ -11,13 +11,13 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base:'/mnls/',
+  base: '/mnls/',
   routes: [
     {
       path: '/',
       name: 'Index',
       // component: (resolve) => require(['../components/index/Index.vue'], resolve)
-      component:()=>import(/*webpackChunkName:'home' */'../components/index/Index.vue'),
+      component: () => import(/*webpackChunkName:'home' */'../components/index/Index.vue'),
       meta: {
         keepAlive: true
       }
@@ -25,7 +25,7 @@ export default new Router({
     {
       path: '/main',
       name: 'Main',
-      component:()=>import(/*webpackChunkName:'main' */'../components/main/Main.vue'),
+      component: () => import(/*webpackChunkName:'main' */'../components/main/Main.vue'),
       meta: {
         keepAlive: true
       }
@@ -52,3 +52,34 @@ export default new Router({
     }
   ]
 })
+// 路由懒加载：https://router.vuejs.org/zh/guide/advanced/lazy-loading.html
+// 一级路由页面异步加载（webpack4.0）
+// Vue.use(Router);
+// import Vue from 'vue';
+// import Router from 'vue-router';
+// export default new Router({
+// routes: [{
+//     path: '/a',
+//     component: () =>
+//         import ( /* webpackChunkName: 'a' */ '@/pages/a'),
+//     name: 'a'
+// }, {
+//     path: '/b',
+//     component: () => import ( /* webpackChunkName: 'b' */ '@/pages/b'),
+//     name: 'b',
+//     children: [{
+//             path: 'b/m',
+//             component: require('@/pages/b/m').default,
+//             name: 'm',
+//             children: [{
+//                 path: 'b/m/p',
+//                 component: require('@/pages/b/m/p').default,
+//                 name: 'p'
+//             }, {
+//                 path: 'b/m/q',
+//                 component: require('@/pages/b/m/q').default,
+//                 name: 'q'
+//             },
+//         ]
+//     }]
+// }]

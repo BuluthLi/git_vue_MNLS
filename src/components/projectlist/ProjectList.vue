@@ -3,14 +3,14 @@
     <div class="header-box">
       <div class="title">战略工程选材区------工程用砖</div>
       <div class="search-box" v-show="status==0">
-        <img src="./search.png" alt @click="onDoSearch">
+        <img src="./search.png" alt @click="onDoSearch" />
         <input
           type="text"
           placeholder="产品搜索"
           class="search"
           v-model="value"
           @keyup.enter="onDoSearch"
-        >
+        />
       </div>
       <button class="search-box-spectial" v-show="status==1" @click="onChangeStatus(0)">点击搜索</button>
     </div>
@@ -24,7 +24,7 @@
       >
         <progressive-background
           :src="item.big_img+'?x-oss-process=image/resize,w_800'"
-          :placeholder="item.big_img+'?x-oss-process=image/resize,w_50'"
+          :placeholder="item.big_img+'?x-oss-process=image/resize,w_100'"
           :blur="5"
         />
         <div class="intro" :title="item.pname">{{item.pname}}</div>

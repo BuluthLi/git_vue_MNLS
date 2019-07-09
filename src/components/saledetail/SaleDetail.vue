@@ -11,9 +11,9 @@
             alt
           >
         </div>-->
-        <progressive-img
+        <progressive-background
           :src="bigMainCover+'?x-oss-process=image/resize,w_800'"
-          :placeholder="bigMainCover+'?x-oss-process=image/resize,w_50'"
+          :placeholder="bigMainCover+'?x-oss-process=image/resize,w_100'"
           :blur="5"
         />
       </div>
@@ -80,7 +80,7 @@
           </div>-->
           <progressive-background
             :src="item.big_img+'?x-oss-process=image/resize,w_800'"
-            :placeholder="item.big_img+'?x-oss-process=image/resize,w_50'"
+            :placeholder="item.big_img+'?x-oss-process=image/resize,w_100'"
             :blur="5"
           />
           <img
@@ -89,7 +89,7 @@
             alt
             v-show="item.vr_url"
             @click="onOpenVR(item.vr_url)"
-          >
+          />
         </li>
       </ul>
       <div class="pagenation" v-show="pageData.total>4">
@@ -225,6 +225,7 @@ export default {
       this.flag = true;
     },
     onHidenImg: function() {
+      this.targetUrl = "";
       this.flag = false;
     },
     reChangeStatus: function() {}
@@ -253,6 +254,7 @@ export default {
       border: 0.02rem solid #333;
       display: flex;
       align-items: center;
+      overflow: hidden;
       .inner-box {
         width: 100%;
         height: 100%;

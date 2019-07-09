@@ -9,17 +9,17 @@
       autoplay
     ></iframe>-->
     <div class="img-box">
-      <img src="./index-bg.jpg" class="img-bg" alt v-show="!showVideoFlag">
-      <video id="myvideo" :src="videoUrl" class="video-bg" v-show="showVideoFlag" autoplay></video>
+      <img src="./index-bg.jpg" class="img-bg" alt v-show="!showVideoFlag" />
+      <!-- <video id="myvideo" :src="videoUrl" class="video-bg" v-show="showVideoFlag" autoplay></video> -->
       <router-link :to="{path:'/projectlist'}" v-show="!showVideoFlag">
-        <img class="img-left" src="./img-left.png" alt>
+        <img class="img-left" src="./img-left.png" alt />
       </router-link>
       <router-link :to="{path:'/main'}" v-show="!showVideoFlag">
-        <img class="img-right" src="./img-right.png" alt>
+        <img class="img-right" src="./img-right.png" alt />
       </router-link>
-      <div class="vr-btn" @click="onShowVideo" v-show="!showVideoFlag">
+      <!-- <div class="vr-btn" @click="onShowVideo" v-show="!showVideoFlag">
         <img src="./video-btn.png" alt>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>

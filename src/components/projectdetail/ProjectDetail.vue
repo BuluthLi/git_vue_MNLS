@@ -11,9 +11,9 @@
             alt
           >
         </div>-->
-        <progressive-img
+        <progressive-background
           :src="bigMainCover+'?x-oss-process=image/resize,w_800'"
-          :placeholder="bigMainCover+'?x-oss-process=image/resize,w_50'"
+          :placeholder="bigMainCover+'?x-oss-process=image/resize,w_100'"
           :blur="5"
         />
       </div>
@@ -68,7 +68,7 @@
             </div>-->
             <progressive-background
               :src="item.big_img+'?x-oss-process=image/resize,w_800'"
-              :placeholder="item.big_img+'?x-oss-process=image/resize,w_50'"
+              :placeholder="item.big_img+'?x-oss-process=image/resize,w_100'"
               :blur="5"
             />
             <div class="project-name">{{item.pic_name}}</div>
@@ -78,7 +78,7 @@
               alt
               v-show="item.vr_url"
               @click.stop="onOpenVR(item.vr_url)"
-            >
+            />
           </li>
         </ul>
         <div class="pagenation" :style="{marginTop:marginTop}" v-show="projectData.total>2">
@@ -115,7 +115,7 @@
             </div>-->
             <progressive-background
               :src="item.big_img+'?x-oss-process=image/resize,w_800'"
-              :placeholder="item.big_img+'?x-oss-process=image/resize,w_50'"
+              :placeholder="item.big_img+'?x-oss-process=image/resize,w_100'"
               :blur="5"
             />
             <img
@@ -124,7 +124,7 @@
               alt
               v-show="item.vr_url"
               @click.stop="onOpenVR(item.vr_url)"
-            >
+            />
           </li>
         </ul>
         <div class="pagenation" :style="{marginTop:marginTop}" v-show="applyData.total>2">
@@ -292,6 +292,7 @@ export default {
       this.flag = true;
     },
     onHidenImg: function() {
+      this.targetUrl = "";
       this.flag = false;
     },
     reChangeStatus: function() {}
@@ -320,6 +321,7 @@ export default {
       border: 0.02rem solid #a2a2a2;
       display: flex;
       align-items: center;
+      overflow: hidden;
       .inner-box {
         width: 100%;
         height: 100%;

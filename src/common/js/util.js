@@ -1,13 +1,13 @@
-export const sendMessage=function(status){
-    let  data=JSON.stringify({"func":"ModifyStatus", "status":status});
-    console.log(data);
-    window.cefQuery({
-        request: data,
-        onSuccess: function(response) {},
-        onFailure: function(error_code, error_message) {}
-      });
+export const sendMessage = function (status) {
+  let data = JSON.stringify({ "func": "ModifyStatus", "status": status });
+  console.log(data);
+  window.cefQuery({
+    request: data,
+    onSuccess: function (response) { },
+    onFailure: function (error_code, error_message) { }
+  });
 }
-export const blurImage=function(_this){
+export const blurImage = function (_this) {
   // console.log(_this.$refs);
   // let list=_this.$refs['blur-image'];
   // console.log(Array.isArray(list));
@@ -16,31 +16,31 @@ export const blurImage=function(_this){
   //   console.log(src);
   // })
 }
-export const autoImg=function(name) {
-  let parent=document.getElementsByClassName(name)[0];
-  let target=parent.getElementsByTagName('img')[0];
-  let parentStyle=window.getComputedStyle(parent,null);
+export const autoImg = function (name) {
+  let parent = document.getElementsByClassName(name)[0];
+  let target = parent.getElementsByTagName('img')[0];
+  let parentStyle = window.getComputedStyle(parent, null);
   // let targetStyle=window.getComputedStyle(target,null);
-  console.log(parent,parentStyle.width,parentStyle.height);
+  console.log(parent, parentStyle.width, parentStyle.height);
   let parent_ratio = parentStyle.width / parentStyle.height;
   var img = new Image();
-  let img_url=target.getAttribute('src');
+  let img_url = target.getAttribute('src');
   console.log(img_url);
   img.src = img_url;
   img.onload = function () {
-        var img_ratio = img.width / img.height;
-        let trueTarget=parent.getElementsByTagName('img')[0];
-        console.log(target,trueTarget);
-        // 判断图片相对与父元素宽小了还是高小了
-        if (img_ratio < parent_ratio) {
-            console.log("图片宽小了");
-            trueTarget.style.width= "100%";
-        } else {
-            console.log("图片高小了");
-            trueTarget.style.height= "100%";
-        }
-    };
-  
+    var img_ratio = img.width / img.height;
+    let trueTarget = parent.getElementsByTagName('img')[0];
+    console.log(target, trueTarget);
+    // 判断图片相对与父元素宽小了还是高小了
+    if (img_ratio < parent_ratio) {
+      console.log("图片宽小了");
+      trueTarget.style.width = "100%";
+    } else {
+      console.log("图片高小了");
+      trueTarget.style.height = "100%";
+    }
+  };
+
 
   // console.log(target);
   // //img元素

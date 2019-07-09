@@ -72,4 +72,26 @@ body {
 .ivu-page-item-active:hover a {
   color: white;
 }
+/* 渐进式图片默认样式修改 */
+/* 图片模式 */
+.progressive-image-wrapper {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.progressive-image-placeholder,
+.progressive-image-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+/* 背景图片模式 */
+.saledetail .left .progressive-background-image,
+.saledetail .left .progressive-background-placeholder,
+.projectdetail .left .progressive-background-image,
+.projectdetail .left .progressive-background-placeholder {
+  background-size: contain;
+}
 </style>
