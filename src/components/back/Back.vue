@@ -1,6 +1,6 @@
 <template>
   <div class="back" @click="onBack">
-    <img src="./back.png" alt>
+    <img src="./back.png" alt />
     <span>返回</span>
   </div>
 </template>
@@ -41,10 +41,11 @@ export default {
             this.$router.push({ path: "/main" });
             break;
           case "SaleDetail":
-            this.$router.push({
-              path: "/main/salelist",
-              query: { id: 3 }
-            });
+            // this.$router.push({
+            //   path: "/main/salelist",
+            //   query: { id: 3 }
+            // });
+            this.$router.back(1);
             break;
           default:
             this.$router.push({ path: "/" });

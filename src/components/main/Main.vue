@@ -1,13 +1,13 @@
 <template>
   <div class="main">
-    <div class="title">常规零售选材区</div>
+    <div class="title" @click="onChangeLanguage">{{$t("message.title")}}</div>
     <div class="content">
       <ul>
         <li v-for="(item,index) in list" :key="index" class="item" @click="onIntoList(item.id)">
-          <img :src="item.img_url" alt class="item-cover">
+          <img :src="item.img_url" alt class="item-cover" />
           <div class="item-name">
             <div class="shade"></div>
-            <div class="text">{{item.cname}}</div>
+            <div class="text">{{$t("message."+item.id)}}</div>
           </div>
         </li>
       </ul>
@@ -24,7 +24,10 @@ export default {
       list: []
     };
   },
+  created() {},
   mounted() {
+    let language = this.$store.getters["user/value"];
+    this.$i18n.locale = language;
     let params = new FormData();
     this.$http.post(process.env.API_HOST + "retail", params).then(res => {
       // console.log(res.data);
@@ -41,7 +44,14 @@ export default {
         query: { id: id }
       });
     },
-    reChangeStatus: function() {}
+    reChangeStatus: function() {},
+    onChangeLanguage: function() {
+      // let _this=this;
+      this.$store.dispatch("user/acChangeLanguage", () => {
+        let language = this.$store.getters["user/value"];
+        this.$i18n.locale = language;
+      });
+    }
   },
   components: {
     Back
