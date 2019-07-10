@@ -27,7 +27,12 @@
               class="swiper-slide img-item"
               @click="onChangeCover(item,index)"
             >
-              <div class="item-cover" :style="{backgroundImage:'url('+item+')'}"></div>
+              <progressive-background
+                class="item-cover"
+                :src="good.big_pics[index]+'?x-oss-process=image/resize,w_800'"
+                :placeholder="good.big_pics[index]+'?x-oss-process=image/resize,w_100'"
+                :blur="5"
+              />
             </div>
           </div>
         </div>
@@ -53,19 +58,6 @@
             class="project-item"
             @click="onPreviewImg(item.big_img)"
           >
-            <!-- <div
-              class="project-cover"
-              :style="{backgroundImage:'url('+item.img_url+')'}"
-              @click="onPreviewImg(item.big_img)"
-            ></div>-->
-            <!-- <div class="project-cover progressive" @click="onPreviewImg(item.big_img)">
-              <img
-                class="preview"
-                :src="item.big_img+'?x-oss-process=image/resize,w_103'"
-                v-progressive="item.big_img+'?x-oss-process=image/resize,w_800'"
-                alt
-              >
-            </div>-->
             <progressive-background
               :src="item.big_img+'?x-oss-process=image/resize,w_800'"
               :placeholder="item.big_img+'?x-oss-process=image/resize,w_100'"
@@ -100,19 +92,6 @@
             class="apply-item"
             @click="onPreviewImg(item.big_img)"
           >
-            <!-- <div
-              class="apply-cover"
-              :style="{backgroundImage:'url('+item.img_url+')'}"
-              @click="onPreviewImg(item.big_img)"
-            ></div>-->
-            <!-- <div class="apply-cover progressive" @click="onPreviewImg(item.big_img)">
-              <img
-                class="preview"
-                :src="item.big_img+'?x-oss-process=image/resize,w_103'"
-                v-progressive="item.big_img+'?x-oss-process=image/resize,w_800'"
-                alt
-              >
-            </div>-->
             <progressive-background
               :src="item.big_img+'?x-oss-process=image/resize,w_800'"
               :placeholder="item.big_img+'?x-oss-process=image/resize,w_100'"

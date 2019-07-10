@@ -27,7 +27,12 @@
               class="swiper-slide img-item"
               @click="onChangeCover(item,index)"
             >
-              <div class="item-cover" :style="{backgroundImage:'url('+item+')'}"></div>
+              <progressive-background
+                class="item-cover"
+                :src="good.big_pics[index]+'?x-oss-process=image/resize,w_800'"
+                :placeholder="good.big_pics[index]+'?x-oss-process=image/resize,w_100'"
+                :blur="5"
+              />
             </div>
           </div>
         </div>
@@ -51,6 +56,7 @@
           :key="index"
           class="type-item"
           @click="onChangeCategory(item.content_id)"
+          :style="{marginTop:marginTop}"
         >
           <div
             class="type-item-text"
@@ -64,20 +70,8 @@
           :key="index"
           class="type-data-item"
           @click="onPreviewImg(item.big_img)"
+          :style="{marginTop:marginTop}"
         >
-          <!-- <div
-            class="type-data-cover"
-            :style="{backgroundImage:'url('+item.img_url+')'}"
-            @click="onPreviewImg(item.big_img)"
-          ></div>-->
-          <!-- <div class="type-data-cover progressive" @click="onPreviewImg(item.big_img)">
-            <img
-              class="preview"
-              :src="item.big_img+'?x-oss-process=image/resize,w_103'"
-              v-progressive="item.big_img+'?x-oss-process=image/resize,w_800'"
-              alt
-            >
-          </div>-->
           <progressive-background
             :src="item.big_img+'?x-oss-process=image/resize,w_800'"
             :placeholder="item.big_img+'?x-oss-process=image/resize,w_100'"
@@ -92,7 +86,7 @@
           />
         </li>
       </ul>
-      <div class="pagenation" v-show="pageData.total>4">
+      <div class="pagenation" v-show="pageData.total>4" :style="{marginTop:marginTop}">
         <Page
           :current="pageData.currentPage"
           :total="pageData.total"
@@ -134,6 +128,15 @@ export default {
       targetUrl: "",
       flag: false
     };
+  },
+  computed: {
+    marginTop: function() {
+      if (this.typeList.length > 6) {
+        return "0.4rem";
+      } else {
+        return "0.6rem";
+      }
+    }
   },
   mounted() {
     let query = this.$router.history.current.query || { id: 26 };
@@ -215,7 +218,7 @@ export default {
       this.bigMainCover = this.good.big_pics[index];
     },
     onPageChange: function(page) {
-      this.getCategory(this.routerParams.id, this.content_id, page);
+      this.getCategory(this.routerParams.id, this.category_id, page);
     },
     onOpenVR: function(url) {
       window.open(url, "_blank", "toolbar=yes, width=1300, height=900");
@@ -356,7 +359,7 @@ export default {
       .type-item {
         list-style: none;
         display: inline-block;
-        margin: 0.4rem 0.8rem 0 0;
+        margin: 0.6rem 0.8rem 0 0;
         font-size: 0.48rem;
         text-align: center;
         min-width: 2rem;
@@ -371,7 +374,7 @@ export default {
       width: 20rem;
       .type-data-item {
         list-style: none;
-        margin: 0.8rem 0.6rem 0 0;
+        margin: 0.6rem 0.6rem 0 0;
         display: inline-block;
         position: relative;
         width: 9.1rem;
