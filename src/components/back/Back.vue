@@ -41,11 +41,12 @@ export default {
             this.$router.push({ path: "/main" });
             break;
           case "SaleDetail":
-            // this.$router.push({
-            //   path: "/main/salelist",
-            //   query: { id: 3 }
-            // });
-            this.$router.back(1);
+            let id = this.$store.getters["user/id"] || 3;
+            this.$router.push({
+              path: "/main/salelist",
+              query: { id: id }
+            });
+            // this.$router.back(1);
             break;
           default:
             this.$router.push({ path: "/" });

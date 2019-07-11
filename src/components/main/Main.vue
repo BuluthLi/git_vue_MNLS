@@ -42,6 +42,8 @@ export default {
   },
   methods: {
     onIntoList: function(id) {
+      // console.log(this.$store.getters['user/value']);
+      this.$store.dispatch("user/acChangeSaleId", id);
       this.$router.push({
         path: "/main/salelist",
         query: { id: id }
