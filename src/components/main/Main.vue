@@ -15,11 +15,13 @@
       </ul>
     </div>
     <Back v-on:changestatus="reChangeStatus(1)"></Back>
+    <Xu></Xu>
   </div>
 </template>
 <script>
 import imgcoverpng from "./img-cover.png";
 import Back from "@/components/back/Back.vue";
+var Xu;
 export default {
   data() {
     return {
@@ -42,12 +44,31 @@ export default {
   },
   methods: {
     onIntoList: function(id) {
+      //动态引入hai.css(测试成功)
+      // var cssA = import("./hai.css").then(a => {
+      //   console.log(a);
+      // });
+      //能执行，会有报错，不影响流程
+      // var cssHai = () => import("./hai.css");
+      // console.log(cssHai);
+      // import(cssHai());
       // console.log(this.$store.getters['user/value']);
+      // -----------------------------------------------------------------------------------
+      // 动态引入import测试,
+      // 测试失败，组件一般只存在：
+      // 1.按需加载：router配置的模式，
+      // 2.组件懒加载：vue-lazy-loader或者新官网lazy模式，
+      // 3.条件加载：用flag控制或者v-if控制组件的加载或者卸载，
+      // 总共三种大的情况,
+      // 以下这种的动态导入可以归结到第三种，所以下面两行代码无意义，
+      // 但是注意上方的css条件加载是成功的，有效且十分有意义（只考虑css换肤，即可以切换css文件，不考虑删除css文件）
+      // （无意义代码：第三种情况）var Xu = () => import("./xu.vue");
+      // （无意义代码：第三种情况）console.log(Xu());
       this.$store.dispatch("user/acChangeSaleId", id);
-      this.$router.push({
-        path: "/main/salelist",
-        query: { id: id }
-      });
+      // this.$router.push({
+      //   path: "/main/salelist",
+      //   query: { id: id }
+      // });
     },
     reChangeStatus: function() {},
     onChangeLanguage: function() {
@@ -59,7 +80,8 @@ export default {
     }
   },
   components: {
-    Back
+    Back,
+    Xu
   }
 };
 </script>

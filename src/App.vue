@@ -37,7 +37,7 @@ body {
 }
 .app {
   font-family: "Microsoft Yahei";
-  min-width: 1280px;
+  /* min-width: 1280px; */
   color: black;
   overflow: hidden;
 }

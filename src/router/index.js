@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import Index from '@/components/index/Index'
-// import Main from '@/components/main/Main'
+import Main from '@/components/main/Main'
 // import SaleList from '@/components/salelist/SaleList'
 // import SaleDetail from '@/components/saledetail/SaleDetail'
 // import ProjectList from '@/components/projectlist/ProjectList'
@@ -26,6 +26,7 @@ export default new Router({
       path: '/main',
       name: 'Main',
       component: () => import(/*webpackChunkName:'main' */'../components/main/Main.vue'),
+      // component:Main,
       meta: {
         keepAlive: true
       }
