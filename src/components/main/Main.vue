@@ -15,7 +15,7 @@
       </ul>
     </div>
     <Back v-on:changestatus="reChangeStatus(1)"></Back>
-    <Xu></Xu>
+    <!-- <Xu></Xu> -->
   </div>
 </template>
 <script>
@@ -65,10 +65,10 @@ export default {
       // （无意义代码：第三种情况）var Xu = () => import("./xu.vue");
       // （无意义代码：第三种情况）console.log(Xu());
       this.$store.dispatch("user/acChangeSaleId", id);
-      // this.$router.push({
-      //   path: "/main/salelist",
-      //   query: { id: id }
-      // });
+      this.$router.push({
+        path: "/main/salelist",
+        query: { id: id }
+      });
     },
     reChangeStatus: function() {},
     onChangeLanguage: function() {
@@ -80,8 +80,8 @@ export default {
     }
   },
   components: {
-    Back,
-    Xu
+    Back
+    // Xu
   }
 };
 </script>
