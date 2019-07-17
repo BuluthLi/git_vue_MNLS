@@ -12,6 +12,7 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   base: '/mnls/',
+  // base: 'mnls',//莫得区别，推荐第一种
   routes: [
     {
       path: '/',
