@@ -15,6 +15,7 @@ module.exports = {
         // target: 'http://192.168.0.72/mnls-znxc.ecs.yfway.com/v2019/public/index.php/',
         target: 'https://mnls-znxc.yfway.com/',
         changeOrigin: true,
+        //如果采用"/api",pathRewirte是必要的,使用"/"，就不需要（但是一般推荐"/api"模式）
         pathRewrite: { "^/api": "" }
       }
     },
