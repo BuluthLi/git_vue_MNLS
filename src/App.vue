@@ -19,6 +19,19 @@ export default {
     this.$refs.app.style.width = target.clientWidth + "px";
     this.$refs.app.style.height = target.clientHeight + "px";
   },
+  /** 用户操作行为监测,这里使用路由检测来实现，projectList页面使用执行单个函数来实现
+   * destroy钩子要手动调用$destrory()方法才会被触发：this.$destory();触发beforeDestory和destoryed两个生命周期hook
+   */
+  // watch: {
+  //   $route(to, from) {
+  //     console.log(to);
+  //     console.log(from);
+  //     if (true) {
+  //       // 需要处理的业务逻辑
+  //       console.log(1234533);
+  //     }
+  //   }
+  // },
   methods: {}
 };
 </script>
